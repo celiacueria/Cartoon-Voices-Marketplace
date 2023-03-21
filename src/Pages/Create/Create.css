@@ -1,0 +1,19 @@
+*{
+padding: 0px;
+margin:0px;
+}
+ 
+ Form{
+    
+    width: 25%;
+    font-family: inherit;
+    font-size: 100%;
+    box-sizing: border-box;
+    background-color: blueviolet;
+    
+
+    
+}
+
+    
+    

@@ -16,7 +16,7 @@ export default function Create() {
     };
     return (
 
-        <Form style={{backgroundColor: '#6c5b7b', color: 'white', padding: '20px'}} onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formName">
           <Form.Label>Nombre y Apellidos</Form.Label>
           <Form.Control type="text" placeholder="Ingresa tu nombre y apellidos" value={name} onChange={(event) => setName(event.target.value)} />
@@ -43,7 +43,7 @@ export default function Create() {
   
         <Form.Group controlId="formPrice">
           <Form.Label>Precio</Form.Label>
-          <Form.Control type="number" placeholder="Ingrese el precio" value={price} onChange={(event) => setPrice(event.target.value)} />
+          <Form.Control type="number" placeholder="Ingresa el precio" value={price} onChange={(event) => setPrice(event.target.value)} />
         </Form.Group>
   
         <Button variant="primary" type="submit">
