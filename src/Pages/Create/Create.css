@@ -125,7 +125,20 @@
     background-color: #ebeff8;
     color: #8D8D8D;
 }
-
+@media (max-width: 768px) {
+    .form-items {
+      padding: 20px;
+    }
+  
+    .form-group {
+      margin-bottom: 15px;
+    }
+  
+    .form-button {
+      margin-top: 15px;
+    }
+  }
+  
 
     
     

@@ -1,4 +1,4 @@
-
+import React from 'react';
 //import { useState } from 'react';
 import '../Pages/Create/Create.css'
 
@@ -15,6 +15,7 @@ export default function FormCreate() {
     //     console.log(name, category, description, price);
     // };
     return (
+        <div class="container">
         <div class="form-body">
             <div class="row">
                 <div class="form-holder">
@@ -24,16 +25,17 @@ export default function FormCreate() {
                             <p>Rellena todos los campos</p>
 
                             <form>
-                                <div class="col-md-12">
+                                <div class="col-md-12 form-group mb-3">
+                                <label class="form-label" for="name">Nombre y Apellidos</label>
                                     <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre" required></input>
                                 </div>
 
                                 <div class="col-md-12">
-                                    <label for="email">Email</label>
+                                    <label class="form-label" for="email">Email</label>
                                     <input type="email" class="form-control" id="email" placeholder="Ingresa tu email"></input>
                                 </div>
-                                <div class="col-md-12">
-                                    <label for="category">Categoría</label>
+                                <div class="col-md-12 form-group mb-3">
+                                    <label class="form-label" for="category">Categoría</label>
                                     <select class="form-select mt-3" required id="category">
                                         <option>Selecciona una categoría</option>
                                         <option>Personaje Disney</option>
@@ -41,13 +43,13 @@ export default function FormCreate() {
                                         <option>Famosos</option>
                                     </select>
                                 </div>
-                                <div class="col-md-12">
-
-                                    <input type="number" class="form-control" id="precio" placeholder="Ingresa el precio" required></input>
+                                <div class="col-md-12 form-group mb-3">
+                                <label class="form-label" for="price">Precio</label>
+                                    <input type="number" class="form-control" id="price" placeholder="Ingresa un valor en euros" required></input>
                                 </div>
-                                <div class="col-md-12">
-
-                                    <input type="text" class="form-control" id="imagen" placeholder="Ingresa la URL de la imagen" required></input>
+                                <div class="col-md-12 form-group mb-3">
+                                <label class="form-label" for="image">Añade una imagen para tu anuncio</label>
+                                    <input type="text" class="form-control" id="image" placeholder="Ingresa la URL de la imagen" required></input>
                                 </div>
                                 <div class="form-button mt-3">
                                     <button type="submit" class="btn btn-primary">Enviar</button>
@@ -57,6 +59,7 @@ export default function FormCreate() {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 }
