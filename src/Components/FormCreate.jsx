@@ -30,7 +30,7 @@ export default function FormCreate() {
                                     <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre" required></input>
                                 </div>
 
-                                <div class="col-md-12">
+                                <div class="col-md-12 form-group mb-3">
                                     <label class="form-label" for="email">Email</label>
                                     <input type="email" class="form-control" id="email" placeholder="Ingresa tu email"></input>
                                 </div>
