@@ -22,9 +22,9 @@ function Header() {
                   Categorías
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" href="#">Disney</a></li>
+                  <li><a class="dropdown-item" href="#">Pixar</a></li>
+                  <li><a class="dropdown-item" href="#">Estudio Ghibli</a></li>
                 </ul>
               </li>
             </ul>
