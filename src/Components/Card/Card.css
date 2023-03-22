@@ -1,0 +1,15 @@
+.card{
+    width:15vw;
+    height: 10vh;
+}
+.card-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card img{
+    
+    border-radius: 200px;
+    height: auto;
+    width: 10vw;
+}
