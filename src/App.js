@@ -4,6 +4,8 @@ import Contact from "./Pages/Contact/Contact";
 import Create from "./Pages/Create/Create";
 import Edit from "./Pages/Edit/Edit";
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 
 
