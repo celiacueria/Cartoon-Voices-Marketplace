@@ -1,9 +1,11 @@
+
 import "./HomePage.css"
 
-export default function HomePage(){
-    return ( 
-        <div>
 
+export default function HomePage() {
+    return (
+        <div>
+           
         </div>
     )
 }
