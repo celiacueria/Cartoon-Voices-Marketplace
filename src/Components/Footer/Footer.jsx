@@ -6,13 +6,14 @@ import "./Footer.css"
 
 export default function Footer() {
     return (
-        <div>
-            <div className="footer-line">
-                <div className="footer">
-                    <AiFillTwitterCircle className="icon" />
-                    <AiFillInstagram className="icon" />
-                    <AiFillFacebook className="icon" />
-                </div>
+        <div className="footer">
+            <div>
+                <hr className="footer-line"></hr>
+            </div>
+            <div className="footer-icon-container">
+                <AiFillTwitterCircle className="icon" />
+                <AiFillInstagram className="icon" />
+                <AiFillFacebook className="icon" />
             </div>
         </div>
     )
