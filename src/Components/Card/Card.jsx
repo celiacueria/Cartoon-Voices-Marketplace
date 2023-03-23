@@ -11,24 +11,26 @@ function Card() {
     let [img, setImg] = useState({ display: "block" })
     let [video, setVideo] = useState({ display: "none" })
 
-    function changeImgVideo() {
-        setImg({ display: "none" })
-        setVideo({ display: "block" })
+    function changeImgVideo(event) {
+        if (event.type === "mouseover") {
+            setImg({ display: "none" })
+            setVideo({ display: "block" })
+        } else {
+            setImg({ dislay: "block" })
+            setVideo({ display: "none" })
+        }
     }
 
-    function resetImgVideo() {
-        setImg({display:"block"})
-        setVideo({display:"none"})
-    }
+
+
 
 
 
     return (
         <div class="card"  >
             <div class="card-img">
-                <img src={imgurl} onClick={changeImgVideo} style={img} alt="ejemplo" />
-                <MdClose  onClick={resetImgVideo} style={video}/>
-                <video src={videomp4} style={video} autoPlay controls />
+                <img src={imgurl} onMouseOver={changeImgVideo} style={img} alt="ejemplo" />
+                <video src={videomp4} onMouseOut={changeImgVideo} style={video} autoPlay controls />
             </div>
             <div class="card-body">
                 <h5 class="card-title">Nombre</h5>
