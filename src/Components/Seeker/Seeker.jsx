@@ -9,7 +9,7 @@ function Seeker() {
     //solo para prueba de funcion, se debe implementar luego nuestra api
 
     const api = async()=>{
-        await axios.get("https://jsonplaceholder.typicode.com/users")
+        await axios.get("http://localhost:8080/voices")
         .then(response=>{
             setActors(response.data);
             setActorsTable(response.data);
@@ -20,7 +20,8 @@ function Seeker() {
     
     function filter(search){
         var result=actorsTable.filter((actor)=>{
-            if(actor.name.toString().toLowerCase().includes(search.toLowerCase())){
+            if(actor.name.toString().toLowerCase().includes(search.toLowerCase())
+            ||actor.category.toString().toLowerCase().includes(search.toLowerCase())){
                 return actor
             }
         });
@@ -40,7 +41,7 @@ useEffect(()=>{
 },[])
     return (
         <div>
-            <input class="seeker-input" value={search} placeholder="Busqueda por nombre" onChange={searching}/>
+            <input class="seeker-input" value={search} placeholder="Busqueda por nombre o categoria" onChange={searching}/>
             <button type="button" class="btn btn-secondary btn-sm m-1">Contratar</button>        
         </div>
     )
