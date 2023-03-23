@@ -1,9 +1,12 @@
 import React from 'react'
 
 function Seeker() {
-  return (
-    <div>Seeker</div>
-  )
+    
+    return (
+        <div>
+        
+        </div>
+    )
 }
 
 export default Seeker
