@@ -1,0 +1,31 @@
+.card {
+    margin: 40vw;
+    width: 20vw;
+    height: auto;
+    
+}
+.card-img {   
+    display: flex;
+    justify-content: center;
+    background-color:  rgb(219, 171, 236);
+}
+.card-body{
+    background-color:  rgb(219, 171, 236);
+}
+.card-body-ul{
+    background-color: rgb(184, 184, 184);
+}
+.card-body-button{
+    display: flex;
+    justify-content: center;
+    background-color:  rgb(219, 171, 236);
+}
+
+img {
+    border-radius: 200px;
+    margin: 10px
+}
+video{
+    width: 15vw;
+    height: auto;
+}
