@@ -1,5 +1,6 @@
 import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
+
 import "./Contact.css"
 
 export default function Contact() {
@@ -8,7 +9,7 @@ export default function Contact() {
             <nav>
                 <Header />
             </nav>
-            <form class="mi-formGen" id="mi-form" action="https://formspree.io/f/mrgvlkdq" method="POST" style={{ marginTop: "8vh", marginLeft: "6vw", marginRight: "6vw" }}>
+            <form class="mi-formGen" id="mi-form" action="https://formspree.io/f/mrgvlkdq" method="POST" style={{ marginTop: "8vh", marginLeft: "6vw", marginRight: "6vw"}}>
                 <div class="container-fluid text-white py-5" style={{ borderRadius: "50px", background: "rgba(219, 171, 236, 1)" }}>
                     <div class="row justify-content-center">
                         <div class="col-md-8 col-lg-6">
