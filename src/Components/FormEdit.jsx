@@ -1,13 +1,12 @@
-import "./Create.css"
+import React from 'react'
+import '../Pages/Create/Create.css'
 
-
-export default function Create(){
-    return ( 
-       
+export default function FormEdit() {
+    return(
         <div class="container d-flex justify-content-center mt-5">
             <div>
                 <form class="form-container">
-                <h1 class="d-flex justify-content-center">Publica tu anuncio</h1>
+                <h1 class="d-flex justify-content-center">Modifica tu anuncio</h1>
                     <div class="mb-3">
                         <input required type="text" class="form-control" id="name"
                             placeholder="Nombre y Apellidos"></input>
@@ -29,14 +28,12 @@ export default function Create(){
                         <input required class="form-control" placeholder="Introduce un importe en euros"
                             id="price"></input>
                     </div>
-                    <button type="submit" class="btn btn-dark">Enviar</button>
-                    <button type="button" class="btn btn-dark ms-2">Borrar</button>
+                    <button type="button" class="btn btn-dark">Enviar</button>
+                    <button type="submit" class="btn btn-dark ms-2">Enviar</button>
+                    
                 </form>
 
             </div>
             </div>
-            );
+    )
 }
-
-        
-    
