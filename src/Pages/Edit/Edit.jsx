@@ -8,9 +8,9 @@ export default function Edit() {
 
         <div>
             <Header />
-            <div class="container d-flex justify-content-center mt-5">
+            <div style={{ background: "rgba(219, 171, 236, 1)", padding: "5%", borderRadius: "10px" }} class="container d-flex justify-content-center mt-5">
                 <div>
-                    <form style={{ background: "rgba(219, 171, 236, 1)", padding: "5%", borderRadius: "10px" }} class="form-container">
+                    <form class="form-container">
                         <h1 class="d-flex justify-content-center">Modifica tu anuncio</h1>
                         <div class="mb-3">
                             <input required type="text" class="form-control" id="name"
