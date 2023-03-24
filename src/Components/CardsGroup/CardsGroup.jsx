@@ -8,8 +8,17 @@ import "./CardsGroup.css"
 function CardsGroup() {
 
     let [cards, setCards] = useState([])
-
-  
+    const api = async()=>{
+        await axios.get("http://localhost:8080/voices")
+        .then(response=>{            
+            setCards(response.data)
+        }).catch(error=>{
+            console.log(error);
+        })
+    }
+    useEffect(()=>{
+        api();   
+    },[])
 
     console.log(cards)
 
