@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Card.css'
-import { MdClose } from "react-icons/md";
+
 
 
 import videomp4 from "./video.mp4"
@@ -22,19 +22,18 @@ function Card() {
     }
 
     return (
-        <div class="card" style={{ width: "18rem" }}>
-            <div class="card-img">
-                <img src={imgurl} onMouseOver={changeImgVideo} style={img} alt="ejemplo" />
-                <video src={videomp4} onMouseOut={changeImgVideo} style={video} autoPlay controls />
+        <div class="card "style={{width: "18rem"}} >
+            <div class="card-img ">
+                <img src={props.url_img} onMouseOver={changeImgVideo} style={img} alt="ejemplo" />
+                <video src={props.url_video} onMouseOut={changeImgVideo} style={video} autoPlay controls />
             </div>
             <div class="card-body">
-                <h5 class="card-title">Nombre</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">{props.name}</h5>
             </div>
             <ul class="card-body-ul">
-                <li class="list-group-item">Categoría</li>
-                <li class="list-group-item">Email de contacto</li>
-                <li class="list-group-item">Precio</li>
+                <li class="list-group-item">{props.category}</li>
+                <li class="list-group-item">{props.price}</li>
+                <li class="list-group-item">{props.email}</li>
             </ul>
             <div class="card-body-button">
                 <button type="button" class="btn btn-secondary btn-sm m-1">Contratar</button>
