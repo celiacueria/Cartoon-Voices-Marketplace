@@ -28,8 +28,8 @@ export default function FormEdit() {
                         <input required class="form-control" placeholder="Introduce un importe en euros"
                             id="price"></input>
                     </div>
-                    <button type="button" class="btn btn-dark ms-2">Enviar</button>
-                    <button type="submit" class="btn btn-dark">Enviar</button>
+                    <button type="button" class="btn btn-dark">Enviar</button>
+                    <button type="submit" class="btn btn-dark ms-2">Enviar</button>
                     
                 </form>
 
