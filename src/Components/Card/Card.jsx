@@ -1,13 +1,7 @@
 import React, { useState } from 'react'
 import './Card.css'
 
-
-
-import videomp4 from "./video.mp4"
-const imgurl = "https://i.pravatar.cc/150?u=pablo";
-
-
-function Card() {
+function Card(props) {
     let [img, setImg] = useState({ display: "block" })
     let [video, setVideo] = useState({ display: "none" })
 

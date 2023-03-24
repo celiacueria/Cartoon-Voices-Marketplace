@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from "axios"
 import { useEffect, useState } from "react"
+
+
 function Seeker() {
     let[actors, setActors] = useState([]);
     let[actorsTable, setActorsTable] = useState([]);
@@ -9,7 +11,7 @@ function Seeker() {
     //solo para prueba de funcion, se debe implementar luego nuestra api
 
     const api = async()=>{
-        await axios.get("https://api.npoint.io/725918c3ecb3ffcc47d9")
+        await axios.get("http://localhost:8080/voices")
         .then(response=>{
             setActors(response.data);
             setActorsTable(response.data);
@@ -32,7 +34,7 @@ function Seeker() {
         setSearch(e.target.value)
         filter(e.target.value);
     }
- console.table(actors)
+    console.log(actors)
 
 
 

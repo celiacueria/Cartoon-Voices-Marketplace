@@ -1,7 +1,8 @@
 
+import CardsGroup from "../../Components/CardsGroup/CardsGroup"
 import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
-import Card from "../../Components/Card/Card"
+
 import "./HomePage.css"
 
 export default function HomePage() {
@@ -11,12 +12,11 @@ export default function HomePage() {
                 <Header />
             </nav>
             <div>
+            <CardsGroup/>
             </div>
             <footer>
                 <Footer />
             </footer>
-            
-            <Card />
         </div>
     )
 }
