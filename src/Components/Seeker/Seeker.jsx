@@ -12,15 +12,15 @@ function Seeker() {
 
     const api = async()=>{
         await axios.get("http://localhost:8080/voices")
-        .then(response=>{
-            setActors(response.data);
+        .then(response=>{            
             setActorsTable(response.data);
+            setActors(response.data)
         }).catch(error=>{
             console.log(error);
         })
     }
     
-    function filter(search){
+    function filter(){
         var result=actorsTable.filter((actor)=>{
             if(actor.name.toString().toLowerCase().includes(search.toLowerCase())
             ||actor.category.toString().toLowerCase().includes(search.toLowerCase())){
@@ -39,11 +39,11 @@ function Seeker() {
 
 
 useEffect(()=>{
-    api();
+    api();   
 },[])
     return (
         <form class="d-flex" role="search">
-            <input class="form-control me-2" value={search} onChange={searching} placeholder="Busca tu personaje"/>
+            <input class="form-control me-2"  onChange={searching} placeholder="Busca tu personaje"/>
             <button class="btn btn-outline-dark" type="submit" >Buscar</button>        
         </form>
     )

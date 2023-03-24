@@ -15,7 +15,6 @@ export default function HomePage() {
             <div>
             <CardsGroup/>
             </div>
-            <Seeker/>
             <footer>
                 <Footer />
             </footer>
