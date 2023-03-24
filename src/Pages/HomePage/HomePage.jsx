@@ -17,7 +17,6 @@ export default function HomePage() {
             <footer>
                 <Footer />
             </footer>
-
             <Seeker />
             <Card />
         </div>
