@@ -12,14 +12,14 @@ function Seeker() {
         await axios.get("http://localhost:8080/voices")
         .then(response=>{
             setActors(response.data);
-            setActorsTable(response.data);
+           
         }).catch(error=>{
             console.log(error);
         })
     }
     
     function filter(search){
-        var result=actorsTable.filter((actor)=>{
+        var result=actors.filter((actor)=>{
             if(actor.name.toString().toLowerCase().includes(search.toLowerCase())
             ||actor.category.toString().toLowerCase().includes(search.toLowerCase())){
                 return actor
@@ -32,7 +32,7 @@ function Seeker() {
         setSearch(e.target.value)
         filter(e.target.value);
     }
- console.table(actors)
+console.table(actors)
 
 
 
