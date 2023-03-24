@@ -8,14 +8,14 @@ function Seeker() {
 
     //solo para prueba de funcion, se debe implementar luego nuestra api
 
-    const api = async () => {
-        await axios.get("https://api.npoint.io/725918c3ecb3ffcc47d9")
-            .then(response => {
-                setActors(response.data);
-
-            }).catch(error => {
-                console.log(error);
-            })
+    const api = async()=>{
+        await axios.get("http://localhost:8080/voices")
+        .then(response=>{
+            setActors(response.data);
+            setActorsTable(response.data);
+        }).catch(error=>{
+            console.log(error);
+        })
     }
 
     function filter(search) {
@@ -32,7 +32,7 @@ function Seeker() {
         setSearch(e.target.value)
         filter(e.target.value);
     }
-    console.table(actors)
+console.table(actors)
 
     useEffect(() => {
         api();
