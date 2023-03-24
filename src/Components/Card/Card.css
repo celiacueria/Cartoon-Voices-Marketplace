@@ -1,9 +1,4 @@
-.card {
-    margin: 40vw;
-    width: 20vw;
-    height: auto;
-    
-}
+
 .card-img {   
     display: flex;
     justify-content: center;
@@ -28,4 +23,4 @@ img {
 video{
     width: 15vw;
     height: auto;
-}
+} 

@@ -27,8 +27,8 @@ function Card() {
 
 
     return (
-        <div class="card"  >
-            <div class="card-img">
+        <div class="card "style={{width: "18rem"}} >
+            <div class="card-img ">
                 <img src={imgurl} onMouseOver={changeImgVideo} style={img} alt="ejemplo" />
                 <video src={videomp4} onMouseOut={changeImgVideo} style={video} autoPlay controls />
             </div>
