@@ -1,3 +1,4 @@
+import Seeker from "../Seeker/Seeker";
 import "./Header.css"
 
 function Header() {
@@ -28,10 +29,7 @@ function Header() {
                 </ul>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Buscar tu personaje" aria-label="Search" />
-              <button class="btn btn-outline-dark" type="submit">Buscar</button>
-            </form>
+            <Seeker />
           </div>
         </div>
       </nav>

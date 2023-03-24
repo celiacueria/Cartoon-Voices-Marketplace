@@ -9,7 +9,7 @@ function Seeker() {
     //solo para prueba de funcion, se debe implementar luego nuestra api
 
     const api = async()=>{
-        await axios.get("http://localhost:8080/voices")
+        await axios.get("https://api.npoint.io/725918c3ecb3ffcc47d9")
         .then(response=>{
             setActors(response.data);
             setActorsTable(response.data);
@@ -40,10 +40,10 @@ useEffect(()=>{
     api();
 },[])
     return (
-        <div>
-            <input class="seeker-input" value={search} placeholder="Busqueda por nombre o categoria" onChange={searching}/>
-            <button type="button" class="btn btn-secondary btn-sm m-1">Contratar</button>        
-        </div>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" aria-label="Search" value={search} placeholder="Busca tu personaje"/>
+            <button class="btn btn-outline-dark" type="submit" onChange={searching}>Buscar</button>        
+        </form>
     )
 }
 
