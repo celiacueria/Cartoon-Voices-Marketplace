@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Card.css'
-import { MdClose } from "react-icons/md";
+
 
 
 import videomp4 from "./video.mp4"
@@ -20,11 +20,6 @@ function Card() {
             setVideo({ display: "none" })
         }
     }
-
-
-
-
-
 
     return (
         <div class="card "style={{width: "18rem"}} >
