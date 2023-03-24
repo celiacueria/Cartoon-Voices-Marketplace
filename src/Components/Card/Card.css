@@ -4,16 +4,11 @@
     justify-content: center;
     background-color:  rgb(219, 171, 236);
 }
-.card-body{
-    background-color:  rgb(219, 171, 236);
-}
-.card-body-ul{
-    background-color: rgb(184, 184, 184);
-}
+
+
 .card-body-button{
     display: flex;
     justify-content: center;
-    background-color:  rgb(219, 171, 236);
 }
 
 img {

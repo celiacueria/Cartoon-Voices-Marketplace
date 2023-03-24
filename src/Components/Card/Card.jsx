@@ -32,7 +32,7 @@ function Card() {
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
             <ul class="card-body-ul">
-                <li class="list-group-item">categoria</li>
+                <li class="list-group-item">Categoría</li>
                 <li class="list-group-item">Email de contacto</li>
                 <li class="list-group-item">Precio</li>
             </ul>
@@ -41,6 +41,6 @@ function Card() {
             </div>
         </div>
     )
-}
+} 
 
 export default Card
