@@ -43,8 +43,8 @@ useEffect(()=>{
 },[])
     return (
         <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" aria-label="Search" value={search} placeholder="Busca tu personaje"/>
-            <button class="btn btn-outline-dark" type="submit" onChange={searching}>Buscar</button>        
+            <input class="form-control me-2" value={search} onChange={searching} placeholder="Busca tu personaje"/>
+            <button class="btn btn-outline-dark" type="submit" >Buscar</button>        
         </form>
     )
 }
