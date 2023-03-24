@@ -6,7 +6,7 @@ import "./Footer.css"
 
 export default function Footer() {
     return (
-        <div className="footer">
+        <footer className="footer">
             <div>
                 <hr className="footer-line"></hr>
             </div>
@@ -15,6 +15,6 @@ export default function Footer() {
                 <AiFillInstagram className="icon" />
                 <AiFillFacebook className="icon" />
             </div>
-        </div>
+        </footer>
     )
 }
