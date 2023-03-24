@@ -12,14 +12,14 @@ function Seeker() {
         await axios.get("https://api.npoint.io/725918c3ecb3ffcc47d9")
         .then(response=>{
             setActors(response.data);
-           
+            setActorsTable(response.data);
         }).catch(error=>{
             console.log(error);
         })
     }
     
     function filter(search){
-        var result=actors.filter((actor)=>{
+        var result=actorsTable.filter((actor)=>{
             if(actor.name.toString().toLowerCase().includes(search.toLowerCase())
             ||actor.category.toString().toLowerCase().includes(search.toLowerCase())){
                 return actor
