@@ -22,13 +22,15 @@ function Seeker(hijoAPadre) {
 
     function filter(c) {
         var result = actorsTable.filter((actor) => {
-            (actor.name.toString().toLowerCase().includes(c.toLowerCase())
-                || actor.category.toString().toLowerCase().includes(c.toLowerCase())
-            )
-            return actor;
+            if(actor.name.toString().toLowerCase().includes(c.toLowerCase())
+                || actor.category.toString().toLowerCase().includes(c.toLowerCase())){
+            return actor
+                }
         });
         setActors(result);
     }
+
+   
 
 
     function searching(e) {
@@ -37,7 +39,7 @@ function Seeker(hijoAPadre) {
     }
 
 
-    console.log(actors)
+    console.table(actors)
 
 
 
