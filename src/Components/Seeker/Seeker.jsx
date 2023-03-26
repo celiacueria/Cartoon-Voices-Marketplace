@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 
 
 function Seeker(hijoAPadre) {
-    let [actors, setActors] = useState("");
+    let [actors, setActors] = useState([]);
     let [actorsTable, setActorsTable] = useState([]);
     let [search, setSearch] = useState("");
 
@@ -14,32 +14,32 @@ function Seeker(hijoAPadre) {
         await axios.get("http://localhost:8080/voices")
             .then(response => {
                 setActorsTable(response.data);
-              setActors(response.data)
+                setActors(response.data)
             }).catch(error => {
                 console.log(error);
             })
     }
 
-    function filter() {
-            var result = actorsTable.filter((actor) => {
-                (actor.name.toString().toLowerCase().includes(search.toLowerCase())
-                    || actor.category.toString().toLowerCase().includes(search.toLowerCase()))
-                }
-                
-            );
-            setActors(result);
-        }
-    
+    function filter(c) {
+        var result = actorsTable.filter((actor) => {
+            (actor.name.toString().toLowerCase().includes(c.toLowerCase())
+                || actor.category.toString().toLowerCase().includes(c.toLowerCase())
+            )
+            return actor;
+        });
+        setActors(result);
+    }
+
 
     function searching(e) {
         setSearch(e.target.value)
         filter(e.target.value);
     }
-    console.log(search);
+
 
     console.log(actors)
 
-  
+
 
     useEffect(() => {
         api();
