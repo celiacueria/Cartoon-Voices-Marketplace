@@ -3,48 +3,51 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 
-function Seeker() {
-    let[actors, setActors] = useState([]);
-    let[actorsTable, setActorsTable] = useState([]);
-    let[search, setSearch] = useState("");
+function Seeker(hijoAPadre) {
+    let [actors, setActors] = useState("");
+    let [actorsTable, setActorsTable] = useState([]);
+    let [search, setSearch] = useState("");
 
     //solo para prueba de funcion, se debe implementar luego nuestra api
 
-    const api = async()=>{
+    const api = async () => {
         await axios.get("http://localhost:8080/voices")
-        .then(response=>{            
-            setActorsTable(response.data);
-            setActors(response.data)
-        }).catch(error=>{
-            console.log(error);
-        })
+            .then(response => {
+                setActorsTable(response.data);
+              setActors(response.data)
+            }).catch(error => {
+                console.log(error);
+            })
     }
+
+    function filter() {
+            var result = actorsTable.filter((actor) => {
+                (actor.name.toString().toLowerCase().includes(search.toLowerCase())
+                    || actor.category.toString().toLowerCase().includes(search.toLowerCase()))
+                }
+                
+            );
+            setActors(result);
+        }
     
-    function filter(){
-        var result=actorsTable.filter((actor)=>{
-            if(actor.name.toString().toLowerCase().includes(search.toLowerCase())
-            ||actor.category.toString().toLowerCase().includes(search.toLowerCase())){
-                return actor
-            }
-        });
-        setActors(result);
-        
-    }
-    function searching(e){
+
+    function searching(e) {
         setSearch(e.target.value)
         filter(e.target.value);
     }
+    console.log(search);
+
     console.log(actors)
 
+  
 
-
-useEffect(()=>{
-    api();   
-},[])
+    useEffect(() => {
+        api();
+    }, [])
     return (
         <form class="d-flex" role="search">
-            <input class="form-control me-2"  onChange={searching} placeholder="Busca tu personaje"/>
-            <button class="btn btn-outline-dark" type="submit" >Buscar</button>        
+            <input class="form-control me-2" onChange={searching} placeholder="Busca tu personaje" />
+            <button class="btn btn-outline-dark" type="submit" >Buscar</button>
         </form>
     )
 }

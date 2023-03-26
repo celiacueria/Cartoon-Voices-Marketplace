@@ -5,9 +5,11 @@ import "./CardsGroup.css"
 
 
 
-function CardsGroup() {
 
+function CardsGroup() {
+    
     let [cards, setCards] = useState([])
+
     const api = async()=>{
         await axios.get("http://localhost:8080/voices")
         .then(response=>{            
@@ -20,7 +22,7 @@ function CardsGroup() {
         api();   
     },[])
 
-    console.log(cards)
+
 
     return (
         <div class='cardsGroup'>
