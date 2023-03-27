@@ -1,9 +1,13 @@
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
+
 import "./Create.css"
+import InputPhoto from "../../Components/InputPhoto/InputPhoto";
 
 
 export default function Create() {
+
+     
     return (
         <div>
             <Header />
@@ -34,6 +38,8 @@ export default function Create() {
                         </div>
                         <button type="submit" class="btn btn-dark">Enviar</button>
                         <button type="button" class="btn btn-dark ms-2">Borrar</button>
+                        <InputPhoto/>
+      
                     </form>
 
                 </div>
@@ -42,6 +48,3 @@ export default function Create() {
         </div>
     );
 }
-
-
-

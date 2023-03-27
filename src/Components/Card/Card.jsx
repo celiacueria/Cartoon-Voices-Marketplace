@@ -3,29 +3,19 @@ import './Card.css'
 
 
 
-import videomp4 from "./video.mp4"
-const imgurl = "https://i.pravatar.cc/150?u=pablo";
+
 
 
 function Card(props) {
-    let [img, setImg] = useState({ display: "block" })
-    let [video, setVideo] = useState({ display: "none" })
+    
 
-    function changeImgVideo(event) {
-        if (event.type === "mouseover") {
-            setImg({ display: "none" })
-            setVideo({ display: "block" })
-        } else {
-            setImg({ dislay: "block" })
-            setVideo({ display: "none" })
-        }
-    }
+    
 
     return (
         <div class="card "style={{width: "18rem"}} >
             <div class="card-img ">
-                <img src={props.url_img} onMouseOver={changeImgVideo} style={img} alt="ejemplo" />
-                <video src={props.url_video} onMouseOut={changeImgVideo} style={video} autoPlay controls />
+            <img src=                 ""
+/>  
             </div>
             <div class="card-body">
                 <h5 class="card-title">{props.name}</h5>
