@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CallAxios from "../../Services/CallAxios";
 
 
 export default function FormEdit({ voice }) {
 
-    const [nombre, setNombre] = useState(voice.name);
-    const [categoria, setCategoria] = useState(voice.category);
-    const [email, setEmail] = useState(voice.email);
-    const [precio, setPrecio] = useState(voice.price);
-    const [id, setId] = useState(voice.id);
+    const [nombre, setNombre] = useState("");
+    const [categoria, setCategoria] = useState("");
+    const [email, setEmail] = useState("");
+    const [precio, setPrecio] = useState("");
+    const [id, setId] = useState("");
 
     const handleUpdate = (id) => {
         CallAxios().getVoices(id)
@@ -22,6 +22,9 @@ export default function FormEdit({ voice }) {
             .catch(error => {
                 console.error(error);
             });
+
+            
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -73,6 +76,7 @@ export default function FormEdit({ voice }) {
                     </div>
                     <button onClick={handleSubmit} type="submit" className="btn btn-dark">Enviar</button>
                     <button onClick={() => handleUpdate(voice.id)} type="button" className="btn btn-dark ms-2">Actualizar</button>
+                    <button onClick={() => handleDelete(voice.id)} type="button" className="btn btn-dark ms-2">Eliminar</button>
                 </form>
             </div>
         </div>
