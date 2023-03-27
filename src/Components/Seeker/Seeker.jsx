@@ -1,9 +1,11 @@
 import React from 'react'
 import axios from "axios"
 import { useEffect, useState } from "react"
+
+
 function Seeker() {
-    let [actorsTable, setActorsTable] = useState ([]);
     let [actors, setActors] = useState([]);
+    let [actorsTable, setActorsTable] = useState([]);
     let [search, setSearch] = useState("");
 
     //solo para prueba de funcion, se debe implementar luego nuestra api
@@ -32,14 +34,18 @@ function Seeker() {
         setSearch(e.target.value)
         filter(e.target.value);
     }
-console.table(actors)
+
+
+    console.table(actors)
+
+
 
     useEffect(() => {
         api();
     }, [])
     return (
         <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" aria-label="Search" value={search} onChange={searching} placeholder="Busca tu personaje" />
+            <input class="form-control me-2" onChange={searching} placeholder="Busca tu personaje" />
             <button class="btn btn-outline-dark" type="submit" >Buscar</button>
         </form>
     )
