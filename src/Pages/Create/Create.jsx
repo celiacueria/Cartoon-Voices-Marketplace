@@ -1,5 +1,5 @@
 import Footer from "../../Components/Footer/Footer"
-import FormCreate from "../../Components/FormCreate"
+import FormCreate from "../../Components/FormCreate/FormCreate";
 import Header from "../../Components/Header/Header"
 
 

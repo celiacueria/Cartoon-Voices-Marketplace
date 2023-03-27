@@ -1,5 +1,5 @@
 import Footer from "../../Components/Footer/Footer";
-import FormEdit from "../../Components/FormEdit";
+import FormEdit from "../../Components/FormEdit/FormEdit";
 import Header from "../../Components/Header/Header";
 
 

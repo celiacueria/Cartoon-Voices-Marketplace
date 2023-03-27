@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CallAxios from "../Services/CallAxios";
+import CallAxios from "../../Services/CallAxios";
 
 
 export default function FormEdit({ voice }) {
