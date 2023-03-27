@@ -22,7 +22,8 @@ export default function FormEdit({ voice }) {
             .catch(error => {
                 console.error(error);
             });
-
+        }
+       
             
 
 
@@ -35,6 +36,7 @@ export default function FormEdit({ voice }) {
             price: precio,
             id: id
         };
+    }
 
 
         CallAxios().updateVoice(voice.id, data)
@@ -46,7 +48,7 @@ export default function FormEdit({ voice }) {
             });
 
             
-    };
+  
 
     return (
         <div style={{ background: "rgba(219, 171, 236, 1)", padding: "5%", borderRadius: "10px" }} className="container d-flex justify-content-center mt-5">
@@ -80,7 +82,9 @@ export default function FormEdit({ voice }) {
                 </form>
             </div>
         </div>
-    );
+    )
 
-    }
+    
 }
+    
+
