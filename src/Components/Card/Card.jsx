@@ -18,8 +18,8 @@ function Card(props) {
     return (
         <div class="card "style={{width: "18rem"}} >
             <div class="card-img ">
-                <img src={props.url_img} onMouseOver={changeImgVideo} style={img} alt="ejemplo" />
-                <video src={props.url_video} onMouseOut={changeImgVideo} style={video} autoPlay controls />
+                <img src={props.img} onMouseOver={changeImgVideo} style={img} alt={props.name} />
+                <video src={props.video} onMouseOut={changeImgVideo} style={video} autoPlay controls />
             </div>
             <div class="card-body">
                 <h5 class="card-title">{props.name}</h5>
