@@ -10,7 +10,7 @@ const CallAxios = () => {
     };
 
     const createVoice = async (data) => {
-        const res = await axios.post(data);
+        const res = await axios.post(`${url}`, data);
         return res;
     };
 
