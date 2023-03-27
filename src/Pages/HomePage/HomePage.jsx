@@ -1,5 +1,4 @@
-
-import CardsGroup from "../../Components/CardsGroup/CardsGroup"
+import CarouselCards from "../../Components/CarouselCards/CarouselCards"
 import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
 import Reviews from "../../Components/Reviews/Reviews"
@@ -11,7 +10,7 @@ export default function HomePage() {
     return (
         <>
             <Header />
-            <CardsGroup />
+            <CarouselCards />
             <Slogan />
             <Reviews />
             <Footer />
