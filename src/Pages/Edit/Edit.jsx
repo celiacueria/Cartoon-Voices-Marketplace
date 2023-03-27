@@ -7,7 +7,6 @@ import Header from "../../Components/Header/Header";
 export default function Edit() {
     return (
         <div>
-            
             <Header />
             <FormEdit />
             <Footer />
