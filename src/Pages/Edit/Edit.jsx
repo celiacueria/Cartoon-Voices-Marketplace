@@ -1,7 +1,10 @@
 import EditForm from "../../Components/EditForm/EditForm";
 import Footer from "../../Components/Footer/Footer";
+import FormCreate from "../../Components/FormCreate/FormCreate";
+import FormEdit from "../../Components/FormEdit/FormEdit";
+
 import Header from "../../Components/Header/Header";
-import "./Edit.css"
+
 
 
 export default function Edit() {
