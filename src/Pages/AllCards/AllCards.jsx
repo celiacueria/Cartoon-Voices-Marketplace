@@ -10,7 +10,6 @@ export default function AllCards() {
         <Header />
         <CardsGroup />
         <Footer />
-
     </>
   )
 }

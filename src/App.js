@@ -5,8 +5,8 @@ import Create from "./Pages/Create/Create";
 import Edit from "./Pages/Edit/Edit";
 import AllCards from "./Pages/AllCards/AllCards";
 import './index.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 
 const router = createBrowserRouter([{

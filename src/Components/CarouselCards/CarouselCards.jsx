@@ -17,37 +17,43 @@ function CarouselCards() {
     useEffect(() => {
         api();
     }, [])
+
     return (
-        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {cards.map((card, index) => (
+                    <li
+                        key={index}
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to={index}
+                        className={index === 0 ? "active" : ""}
+                    ></li>
+                ))}
+            </ol>
             <div class="carousel-inner">
-                {cards.map((actor, index) =>
-                    <div className={index === 0 ? 'carousel-item active' : 'carousel-item'} key={cards.id}>
-                        <img src={actor.url_img} class="d-block w-100" alt="..."/>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>{actor.name}</h5>
-                                <p>{actor.email}</p>
-                            
-                            </div>
-                    
+                {cards.map((card, index) =>
+                    <div
+                        className={index === 0 ? "carousel-item active" : "carousel-item"}
+                        key={card.id}
+                    >
+                        <img class="d-block" src={card.urlImg} alt={card.name} style={{ width: "500px", height: "300px", margin: "auto" }} />
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{card.name}</h5>
+                            <p>{card.email}</p>
+                        </div>
                     </div>
                 )}
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
     );
-
 }
 
 export default CarouselCards
