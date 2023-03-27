@@ -2,7 +2,7 @@ import React from 'react'
 import axios from "axios"
 import { useEffect, useState } from "react"
 function Seeker() {
-
+    let [actorsTable, setActorsTable] = useState ([]);
     let [actors, setActors] = useState([]);
     let [search, setSearch] = useState("");
 
@@ -19,7 +19,7 @@ function Seeker() {
     }
 
     function filter(search) {
-        var result = actors.filter((actor) => {
+        var result = actorsTable.filter((actor) => {
             if (actor.name.toString().toLowerCase().includes(search.toLowerCase())
                 || actor.category.toString().toLowerCase().includes(search.toLowerCase())) {
                 return actor
