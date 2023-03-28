@@ -1,30 +1,46 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import CallAxios from "../../Services/CallAxios";
 
 
-export default function FormEdit({ voice }) {
+
+export default function FormEdit() {
 
     const [nombre, setNombre] = useState("");
     const [categoria, setCategoria] = useState("");
     const [email, setEmail] = useState("");
     const [precio, setPrecio] = useState("");
-    const [id, setId] = useState("");
+    const  { id } = useParams();
 
-    const handleUpdate = (id) => {
+   
+
+    const handleUpdate = () => {
         CallAxios().getVoices(id)
             .then(response => {
-                setNombre(response.data.name);
-                setCategoria(response.data.category);
-                setEmail(response.data.email);
-                setPrecio(response.data.price);
-                setId(response.data.id);
+                setNombre(response.name);
+                setCategoria(response.category);
+                setEmail(response.email);
+                setPrecio(response.price);
+                
             })
             .catch(error => {
                 console.error(error);
             });
-        }
-       
-            
+    }
+ useState(()=>{
+    handleUpdate();
+ })
+
+ const handleDelete = (id) =>{
+CallAxios().deleteVoice(id)
+    .then(response => {
+        console.log ("carata eliminada con exito");
+    })
+    .catch(error => {
+        console.error(error);
+    })
+ }
+
 
 
     const handleSubmit = (event) => {
@@ -36,8 +52,6 @@ export default function FormEdit({ voice }) {
             price: precio,
             id: id
         };
-   
-
 
         // CallAxios().updateVoice(voice.id, data)
         //     .then(response => {
@@ -46,9 +60,8 @@ export default function FormEdit({ voice }) {
         //     .catch(error => {
         //         console.error(error);
         //     });
+    }
 
-       }      
-  
 
     return (
         <div style={{ background: "rgba(219, 171, 236, 1)", padding: "5%", borderRadius: "10px" }} className="container d-flex justify-content-center mt-5">
@@ -77,14 +90,14 @@ export default function FormEdit({ voice }) {
                             id="price" onChange={(e) => setPrecio(e.target.value)} value={precio}></input>
                     </div>
                     <button onClick={handleSubmit} type="submit" className="btn btn-dark">Enviar</button>
-                    <button onClick={() => handleUpdate(voice.id)} type="button" className="btn btn-dark ms-2">Actualizar</button>
-                    <button  type="button" className="btn btn-dark ms-2">Eliminar</button>
+                    <button onClick={() => handleUpdate()} type="button" className="btn btn-dark ms-2">Actualizar</button>
+                    <button type="button" onClick = {handleDelete} className="btn btn-dark ms-2">Eliminar</button>
                 </form>
             </div>
         </div>
     )
 
-    
+
 }
-    
+
 

@@ -4,9 +4,9 @@ const CallAxios = () => {
 
     const url = "http://localhost:8080/voices"
 
-    const getVoices = async () => {
-        const res = await axios.get(`${url}`);
-        return res;
+    const getVoices = async (id) => {
+        const res = await axios.get(`${url}/${id}`);
+        return res.data;
     };
 
     const createVoice = async (data) => {
@@ -21,7 +21,7 @@ const CallAxios = () => {
 
     const deleteVoice = async (id) => {
         const res = await axios.delete(`${url}/${id}`);
-        return res;
+        return res.data;
     };
 
     return {

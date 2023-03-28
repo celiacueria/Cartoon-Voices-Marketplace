@@ -22,13 +22,14 @@ function CardsGroup() {
         api();   
     },[])
 
-console.log(cards)
+
 
     return (
         <div class='cardsGroup'>
             {cards.map((actor,) =>
                 <Card
                     actor={actor}
+                    id={actor.id}
                     img={actor.urlImg}
                     video={actor.urlVideo}
                     name={actor.name}

@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Card.css'
 
 function Card(props) {
     let [img, setImg] = useState({ display: "block" })
     let [video, setVideo] = useState({ display: "none" })
-
+   const id = props.id;
+ const editUrl=`/edit/${id}`;
     function changeImgVideo(event) {
         if (event.type === "mouseover") {
             setImg({ display: "none" })
@@ -31,6 +33,9 @@ function Card(props) {
             </ul>
             <div class="card-body-button">
                 <button type="button" class="btn btn-secondary btn-sm m-1">Contratar</button>
+                <Link to={editUrl}>
+                <button type="button" class="btn btn-secondary btn-sm m-1">Editar</button> 
+                </Link>             
             </div>
         </div>
     )
