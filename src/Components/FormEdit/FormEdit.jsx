@@ -36,18 +36,18 @@ export default function FormEdit({ voice }) {
             price: precio,
             id: id
         };
-    }
+   
 
 
-        CallAxios().updateVoice(voice.id, data)
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        // CallAxios().updateVoice(voice.id, data)
+        //     .then(response => {
+        //         console.log(response.data);
+        //     })
+        //     .catch(error => {
+        //         console.error(error);
+        //     });
 
-            
+       }      
   
 
     return (
@@ -78,7 +78,7 @@ export default function FormEdit({ voice }) {
                     </div>
                     <button onClick={handleSubmit} type="submit" className="btn btn-dark">Enviar</button>
                     <button onClick={() => handleUpdate(voice.id)} type="button" className="btn btn-dark ms-2">Actualizar</button>
-                    <button onClick={() => handleDelete(voice.id)} type="button" className="btn btn-dark ms-2">Eliminar</button>
+                    <button  type="button" className="btn btn-dark ms-2">Eliminar</button>
                 </form>
             </div>
         </div>

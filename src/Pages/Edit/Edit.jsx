@@ -1,4 +1,4 @@
-import EditForm from "../../Components/EditForm/EditForm";
+
 import Footer from "../../Components/Footer/Footer";
 import FormCreate from "../../Components/FormCreate/FormCreate";
 import FormEdit from "../../Components/FormEdit/FormEdit";
@@ -11,7 +11,7 @@ export default function Edit() {
     return (
         <div>
             <Header />
-            <EditForm />
+            <FormEdit />
             <Footer />
         </div>
     );
