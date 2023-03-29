@@ -10,9 +10,9 @@ export default function FormEdit() {
     const [categoria, setCategoria] = useState("");
     const [email, setEmail] = useState("");
     const [precio, setPrecio] = useState("");
-    const  { id } = useParams();
+    const { id } = useParams();
 
-   
+
 
     const handleUpdate = () => {
         CallAxios().getVoices(id)
@@ -21,26 +21,25 @@ export default function FormEdit() {
                 setCategoria(response.category);
                 setEmail(response.email);
                 setPrecio(response.price);
-                
+
             })
             .catch(error => {
                 console.error(error);
             });
     }
- useState(()=>{
-    handleUpdate();
- })
-
- const handleDelete = (id) =>{
-CallAxios().deleteVoice(id)
-    .then(response => {
-        console.log ("carata eliminada con exito");
+    useState(() => {
+        handleUpdate();
     })
-    .catch(error => {
-        console.error(error);
-    })
- }
 
+    const handleDelete = (id) => {
+        CallAxios().deleteVoice(id)
+            .then(response => {
+                console.log("carta eliminada");
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
 
 
     const handleSubmit = (event) => {
@@ -53,13 +52,13 @@ CallAxios().deleteVoice(id)
             id: id
         };
 
-        // CallAxios().updateVoice(voice.id, data)
-        //     .then(response => {
-        //         console.log(response.data);
-        //     })
-        //     .catch(error => {
-        //         console.error(error);
-        //     });
+        CallAxios().updateVoice(voice.id, data)
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }
 
 
@@ -67,7 +66,7 @@ CallAxios().deleteVoice(id)
         <div style={{ background: "rgba(219, 171, 236, 1)", padding: "5%", borderRadius: "10px" }} className="container d-flex justify-content-center mt-5">
             <div>
                 <form className="form-container">
-                    <h1 className="d-flex justify-content-center">Publica tu anuncio</h1>
+                    <h1 className="d-flex justify-content-center">Modifica tu anuncio</h1>
                     <div className="mb-3">
                         <input required type="text" className="form-control" id="name"
                             placeholder="Nombre y Apellidos" onChange={(e) => setNombre(e.target.value)} value={nombre}></input>
@@ -89,9 +88,8 @@ CallAxios().deleteVoice(id)
                         <input required className="form-control" placeholder="Introduce un importe en euros"
                             id="price" onChange={(e) => setPrecio(e.target.value)} value={precio}></input>
                     </div>
-                    <button onClick={handleSubmit} type="submit" className="btn btn-dark">Enviar</button>
                     <button onClick={() => handleUpdate()} type="button" className="btn btn-dark ms-2">Actualizar</button>
-                    <button type="button" onClick = {handleDelete} className="btn btn-dark ms-2">Eliminar</button>
+                    <button type="button" onClick={handleDelete} className="btn btn-dark ms-2">Eliminar</button>
                 </form>
             </div>
         </div>
