@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import './Card.css'
+import { Link } from 'react-router-dom'
 
 function Card(props) {
     let [img, setImg] = useState({ display: "block" })
     let [video, setVideo] = useState({ display: "none" })
+    const id = props.id;
+    const editUrl = `/edit/${id}`;
 
     function changeImgVideo(event) {
         if (event.type === "mouseover") {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import CallAxios from "../../Services/CallAxios";
 
 
@@ -8,16 +9,16 @@ export default function FormEdit({ voice }) {
     const [categoria, setCategoria] = useState("");
     const [email, setEmail] = useState("");
     const [precio, setPrecio] = useState("");
-    const [id, setId] = useState("");
+    const { id } = useParams();
 
-    const handleUpdate = (id) => {
+    const handleUpdate = () => {
         CallAxios().getVoices(id)
             .then(response => {
                 setNombre(response.data.name);
                 setCategoria(response.data.category);
                 setEmail(response.data.email);
                 setPrecio(response.data.price);
-                setId(response.data.id);
+                
             })
             .catch(error => {
                 console.error(error);
