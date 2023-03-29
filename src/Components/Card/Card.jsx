@@ -30,7 +30,12 @@ function Card(props) {
                 <li class="list-group-item">{props.email}</li>
             </ul>
             <div class="card-body-button">
+            <Link to="/contact">
                 <button type="button" class="btn btn-secondary btn-sm m-1">Contratar</button>
+                </Link>
+                <Link to={editUrl}>
+                    <button type="button" class="btn btn-secondary btn-sm m-1">Editar</button>
+                </Link>
             </div>
         </div>
     )
