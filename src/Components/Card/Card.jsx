@@ -1,30 +1,18 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Card.css'
-import { Link } from 'react-router-dom'
+
 
 function Card(props) {
     
-    let [img, setImg] = useState({ display: "block" })
-    let [video, setVideo] = useState({ display: "none" })
     const id = props.id;
     const editUrl = `/edit/${id}`;
     
-    function changeImgVideo(event) {
-        if (event.type === "mouseover") {
-            setImg({ display: "none" })
-            setVideo({ display: "block" })
-        } else {
-            setImg({ dislay: "block" })
-            setVideo({ display: "none" })
-        }
-    }
 
     return (
         <div class="card " style={{ width: "18rem" }} >
             <div class="card-img ">
-                <img src={props.img} onMouseOver={changeImgVideo} style={img} alt={props.name} />
-                <video src={props.video} onMouseOut={changeImgVideo} style={video} autoPlay controls />
+                <img src={props.img}  alt={props.name} />
             </div>
             <div class="card-body">
                 <h5 class="card-title">{props.name}</h5>
