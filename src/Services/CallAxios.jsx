@@ -9,14 +9,18 @@ const CallAxios = () => {
         const res = await axios.get(`${url}/${id}`);
         return res.data;
     };
+    const getVoicesById = async (id) => {
+        const res = await axios.get(`${url}/${id}`);
+        return res;
+    };
 
     const createVoice = async (data) => {
         const res = await axios.post(`${url}`, data);
         return res;
     };
 
-    const updateVoice = async (id, data) => {
-        const res = await axios.put(`${url}/${id}`, data);
+    const updateVoice = async (data) => {
+        const res = await axios.put(`${url}`, data);
         return res;
     };
 
@@ -30,6 +34,7 @@ const CallAxios = () => {
         createVoice,
         updateVoice,
         deleteVoice,
+        getVoicesById,
         url
     };
 };

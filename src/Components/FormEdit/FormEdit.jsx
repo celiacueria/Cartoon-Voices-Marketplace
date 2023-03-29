@@ -10,16 +10,14 @@ export default function FormEdit() {
     const [categoria, setCategoria] = useState("");
     const [email, setEmail] = useState("");
     const [precio, setPrecio] = useState("");
+    const [voice, setVoice] = useState("");
     const { id } = useParams();
 
-    const handleUpdate = () => {
-        CallAxios().getVoices(id)
+    const handleUpdate = (id) => {
+        CallAxios().getVoicesById(id)
             .then(response => {
-                setNombre(response.name);
-                setCategoria(response.category);
-                setEmail(response.email);
-                setPrecio(response.price);
-
+                setVoice(response.data);
+                console.info(response.data)
             })
             .catch(error => {
                 console.error(error);
@@ -40,6 +38,12 @@ export default function FormEdit() {
             })
     }
 
+
+    };
+    useEffect(() => {
+        handleUpdate(id)
+
+    });
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = {
@@ -48,29 +52,30 @@ export default function FormEdit() {
             email: email,
             price: precio,
             id: id
-        };
-
-        CallAxios().updateVoice(id, data)
+        }
+        console.log(data);
+        CallAxios().updateVoice(data)
             .then(response => {
                 console.log(response.data);
             })
             .catch(error => {
                 console.error(error);
             });
-    }
+
+    };
 
     return (
         <div style={{ background: "rgba(219, 171, 236, 1)", padding: "5%", borderRadius: "10px" }} className="container d-flex justify-content-center mt-5">
             <div>
-                <form className="form-container">
+                <form name="datos" className="form-container">
                     <h1 className="d-flex justify-content-center">Modifica tu anuncio</h1>
                     <div className="mb-3">
                         <input required type="text" className="form-control" id="name"
-                            placeholder="Nombre y Apellidos" onChange={(e) => setNombre(e.target.value)} value={nombre}></input>
+                            placeholder="Nombre y Apellidos" onChange={(e) => setNombre(e.target.value)} defaultValue={voice.name}></input>
                     </div>
                     <div className="mb-3">
-                        <select required className="form-control" id="category" onChange={(e) => setCategoria(e.target.value)} value={categoria}>
-                            <option value="selected">Categoría</option>
+                        <select required className="form-control" id="category" onChange={(e) => setCategoria(e.target.value)} defaultValue={voice.category}>
+                            <option value="" disabled="disabled">Categoría</option>
                             <option value="Animación">Animación</option>
                             <option value="Cine">Cine</option>
                             <option value="Famosos">Famosos</option>
@@ -79,13 +84,13 @@ export default function FormEdit() {
                     <div className="mb-3">
                         <input required type="text" className="form-control"
                             placeholder="Escribe aquí tu mail"
-                            id="email" onChange={(e) => setEmail(e.target.value)} value={email}></input>
+                            id="email" onChange={(e) => setEmail(e.target.value)} defaultValue={voice.email}></input>
                     </div>
                     <div className="mb-3">
                         <input required className="form-control" placeholder="Introduce un importe en euros"
-                            id="price" onChange={(e) => setPrecio(e.target.value)} value={precio}></input>
+                            id="price" onChange={(e) => setPrecio(e.target.value)} defaultValue={voice.price}></input>
                     </div>
-                    <button onClick={() => handleUpdate()} type="button" className="btn btn-dark ms-2">Actualizar</button>
+                    <button onClick={handleSubmit} type="button" className="btn btn-dark ms-2">Actualizar</button>
                     <Link to="/cards">
                     <button type="button" onClick={()=>handleDelete(id)} className="btn btn-dark ms-2">Eliminar</button>
                     </Link>
@@ -94,5 +99,5 @@ export default function FormEdit() {
         </div>
     )
 }
-
+    
 
