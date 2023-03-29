@@ -33,7 +33,6 @@ export default function FormCreate() {
     }
     return (
         
-            
             <div style={{ background: "rgba(219, 171, 236, 1)", padding: "5%", borderRadius: "10px" }} className="container d-flex justify-content-center mt-5">
                 <div>
                     <form className="form-container">
