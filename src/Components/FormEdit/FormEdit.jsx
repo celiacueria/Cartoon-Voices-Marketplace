@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CallAxios from "../../Services/CallAxios";
 
-
-
 export default function FormEdit() {
 
     const [nombre, setNombre] = useState("");
@@ -11,8 +9,6 @@ export default function FormEdit() {
     const [email, setEmail] = useState("");
     const [precio, setPrecio] = useState("");
     const { id } = useParams();
-
-
 
     const handleUpdate = () => {
         CallAxios().getVoices(id)
@@ -41,7 +37,6 @@ export default function FormEdit() {
             })
     }
 
-
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = {
@@ -52,7 +47,7 @@ export default function FormEdit() {
             id: id
         };
 
-        CallAxios().updateVoice(voice.id, data)
+        CallAxios().updateVoice(id, data)
             .then(response => {
                 console.log(response.data);
             })
@@ -60,7 +55,6 @@ export default function FormEdit() {
                 console.error(error);
             });
     }
-
 
     return (
         <div style={{ background: "rgba(219, 171, 236, 1)", padding: "5%", borderRadius: "10px" }} className="container d-flex justify-content-center mt-5">
@@ -89,13 +83,11 @@ export default function FormEdit() {
                             id="price" onChange={(e) => setPrecio(e.target.value)} value={precio}></input>
                     </div>
                     <button onClick={() => handleUpdate()} type="button" className="btn btn-dark ms-2">Actualizar</button>
-                    <button type="button" onClick={handleDelete} className="btn btn-dark ms-2">Eliminar</button>
+                    <button type="button" onClick = {()=>handleDelete(id)}  className="btn btn-dark ms-2">Eliminar</button>
                 </form>
             </div>
         </div>
     )
-
-
 }
 
 
