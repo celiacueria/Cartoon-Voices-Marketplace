@@ -30,13 +30,6 @@ export default function FormEdit() {
 
     const handleDelete = (id) => {
         CallAxios().deleteVoice(id)
-            .then(response => {
-                alert("Anuncio eliminado");
-
-            })
-            .catch(error => {
-                console.error(error);
-            })
     }
 
 
