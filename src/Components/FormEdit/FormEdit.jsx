@@ -1,4 +1,4 @@
-import { startTransition, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import CallAxios from "../../Services/CallAxios";
 import { useEffect } from "react";
@@ -16,7 +16,6 @@ export default function FormEdit() {
         CallAxios().getVoicesById(id)
             .then(response => {
                 setVoice(response.data);
-                console.info(response.data)
             })
             .catch(error => {
                 console.error(error);
@@ -30,13 +29,13 @@ export default function FormEdit() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = {
-            name: nombre,
-            category: categoria,
-            email: email,
-            price: precio,
+            name: nombre||voice.name,
+            category: categoria||voice.category,
+            email: email||voice.email,
+            price: precio||voice.price,
             id: id
         }
-        console.log(data);
+        
         CallAxios().updateVoice(data)
             .then(response => {
                 console.log(response.data);
