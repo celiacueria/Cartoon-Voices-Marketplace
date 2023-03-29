@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import CallAxios from "../../Services/CallAxios";
 
 
-export default function FormEdit({ voice }) {
+export default function FormEdit() {
 
     const [nombre, setNombre] = useState("");
     const [categoria, setCategoria] = useState("");
@@ -40,13 +40,13 @@ export default function FormEdit({ voice }) {
    
 
 
-        // CallAxios().updateVoice(voice.id, data)
-        //     .then(response => {
-        //         console.log(response.data);
-        //     })
-        //     .catch(error => {
-        //         console.error(error);
-        //     });
+        CallAxios().updateVoice(id, data)
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
 
        }      
   

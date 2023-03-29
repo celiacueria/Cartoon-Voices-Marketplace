@@ -6,7 +6,7 @@ const CallAxios = () => {
 
     const getVoices = async (id) => {
         const res = await axios.get(`${url}/${id}`);
-        return res;
+        return res.data;
     };
 
     const createVoice = async (data) => {
