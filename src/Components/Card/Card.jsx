@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Card.css'
-
+import { Link } from 'react-router-dom';
 
 
 import videomp4 from "./video.mp4"
@@ -10,6 +10,8 @@ const imgurl = "https://i.pravatar.cc/150?u=pablo";
 function Card(props) {
     let [img, setImg] = useState({ display: "block" })
     let [video, setVideo] = useState({ display: "none" })
+    const id = props.id;
+    const editUrl = `edit/${id}`;
 
     function changeImgVideo(event) {
         if (event.type === "mouseover") {
@@ -36,7 +38,12 @@ function Card(props) {
                 <li class="list-group-item">{props.email}</li>
             </ul>
             <div class="card-body-button">
+            <Link to="/contact">
                 <button type="button" class="btn btn-secondary btn-sm m-1">Contratar</button>
+                </Link>
+                <Link to={editUrl}>
+                    <button type="button" class="btn btn-secondary btn-sm m-1">Editar</button>
+                </Link>
             </div>
         </div>
     )

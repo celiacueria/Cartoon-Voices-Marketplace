@@ -1,13 +1,14 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import CallAxios from "../Services/CallAxios";
 
 
-export default function FormEdit({ voice }) {
-    const [nombre, setNombre] = useState(voice.name);
-    const [categoria, setCategoria] = useState(voice.category);
-    const [email, setEmail] = useState(voice.email);
-    const [precio, setPrecio] = useState(voice.price);
-    const [id, setId] = useState(voice.id);
+export default function FormEdit() {
+    const [nombre, setNombre] = useState("");
+    const [categoria, setCategoria] = useState("");
+    const [email, setEmail] = useState("");
+    const [precio, setPrecio] = useState("");
+    const {id} = useParams();
 
     const handleUpdate = (id) => {
         CallAxios().getVoices(id)
@@ -16,7 +17,7 @@ export default function FormEdit({ voice }) {
                 setCategoria(response.data.category);
                 setEmail(response.data.email);
                 setPrecio(response.data.price);
-                setId(response.data.id);
+                
             })
             .catch(error => {
                 console.error(error);
@@ -33,7 +34,7 @@ export default function FormEdit({ voice }) {
                 price: precio,
                 id: id
             }
-            CallAxios().updateVoice(voice.id, data)
+            CallAxios().updateVoice(id, data)
                 .then(response => {
                     console.log(response.data);
                 })
@@ -70,7 +71,7 @@ export default function FormEdit({ voice }) {
                                 id="price" onChange={(e) => setPrecio(e.target.value)} value={precio}></input>
                         </div>
                         <button onClick={handleSubmit} type="submit" className="btn btn-dark">Enviar</button>
-                        <button onClick={() => handleUpdate(voice.id)} type="button" className="btn btn-dark ms-2">Actualizar</button>
+                        <button onClick={() => handleUpdate(id)} type="button" className="btn btn-dark ms-2">Actualizar</button>
                     </form>
                 </div>
             </div>
