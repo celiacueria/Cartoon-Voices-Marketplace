@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import './Card.css'
 
 function Card(props) {
+    
     let [img, setImg] = useState({ display: "block" })
     let [video, setVideo] = useState({ display: "none" })
-   const id = props.id;
- const editUrl=`/edit/${id}`;
+    const id = props.id;
+    const editUrl = `/edit/${id}`;
+    
     function changeImgVideo(event) {
         if (event.type === "mouseover") {
             setImg({ display: "none" })
@@ -18,7 +20,7 @@ function Card(props) {
     }
 
     return (
-        <div class="card "style={{width: "18rem"}} >
+        <div class="card " style={{ width: "18rem" }} >
             <div class="card-img ">
                 <img src={props.img} onMouseOver={changeImgVideo} style={img} alt={props.name} />
                 <video src={props.video} onMouseOut={changeImgVideo} style={video} autoPlay controls />
@@ -32,13 +34,15 @@ function Card(props) {
                 <li class="list-group-item">{props.email}</li>
             </ul>
             <div class="card-body-button">
+                <Link to="/contact">
                 <button type="button" class="btn btn-secondary btn-sm m-1">Contratar</button>
+                </Link>
                 <Link to={editUrl}>
-                <button type="button" class="btn btn-secondary btn-sm m-1">Editar</button> 
-                </Link>             
+                    <button type="button" class="btn btn-secondary btn-sm m-1">Editar</button>
+                </Link>
             </div>
         </div>
     )
-} 
+}
 
 export default Card

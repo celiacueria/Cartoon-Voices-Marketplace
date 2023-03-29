@@ -4,6 +4,9 @@ const CallAxios = () => {
 
     const url = "http://localhost:8080/voices"
 
+    
+
+
     const getVoices = async (id) => {
         const res = await axios.get(`${url}/${id}`);
         return res.data;
