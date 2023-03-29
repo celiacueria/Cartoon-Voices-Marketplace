@@ -12,8 +12,6 @@ export default function FormEdit() {
     const [precio, setPrecio] = useState("");
     const { id } = useParams();
 
-
-
     const handleUpdate = () => {
         CallAxios().getVoices(id)
             .then(response => {
@@ -42,7 +40,6 @@ export default function FormEdit() {
             })
     }
 
-
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = {
@@ -61,7 +58,6 @@ export default function FormEdit() {
                 console.error(error);
             });
     }
-
 
     return (
         <div style={{ background: "rgba(219, 171, 236, 1)", padding: "5%", borderRadius: "10px" }} className="container d-flex justify-content-center mt-5">
@@ -97,8 +93,6 @@ export default function FormEdit() {
             </div>
         </div>
     )
-
-
 }
 
 
