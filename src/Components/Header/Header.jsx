@@ -1,6 +1,6 @@
 import Seeker from "../Seeker/Seeker";
 import "./Header.css"
-import logo from "../../assets/img/Img1.png"
+import logo from "../../Assets/img/Img1.png"
 function Header() {
   return (
     <div>
@@ -19,16 +19,10 @@ function Header() {
               <li class="nav-item">
                 <a class="nav-link text-dark" href="/create">Publica tu anuncio</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Categorías
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Disney</a></li>
-                  <li><a class="dropdown-item" href="#">Pixar</a></li>
-                  <li><a class="dropdown-item" href="#">Estudio Ghibli</a></li>
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="/cards">Anuncios</a>
               </li>
+              
             </ul>
             <Seeker />
           </div>

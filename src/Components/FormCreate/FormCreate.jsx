@@ -1,5 +1,6 @@
 import CallAxios from "../../Services/CallAxios";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
@@ -57,7 +58,7 @@ export default function FormCreate() {
                             <input required className="form-control" placeholder="Introduce un importe en euros"
                                 id="price" onChange={(e) => setPrecio(e.target.value)}></input>
                         </div>
-                        <button onClick={handleSubmit} type="submit" className="btn btn-dark">Enviar</button>
+                        <button onClick={handleSubmit} type="submit" href="/" className="btn btn-dark">Enviar</button>
                         <button type="button" className="btn btn-dark ms-2">Borrar</button>
                     </form>
                     

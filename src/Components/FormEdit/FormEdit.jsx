@@ -11,6 +11,7 @@ export default function FormEdit() {
     const [email, setEmail] = useState("");
     const [precio, setPrecio] = useState("");
     const [voice, setVoice] = useState("");
+    const [urlImg, setUrlImg] = useState("");
     const { id } = useParams();
 
     const handleUpdate = (id) => {
@@ -29,9 +30,9 @@ export default function FormEdit() {
 
     const handleDelete = (id) => {
         CallAxios().deleteVoice(id)
-            .then(response => {          
+            .then(response => {
                 alert("Anuncio eliminado");
-                
+
             })
             .catch(error => {
                 console.error(error);
@@ -39,7 +40,6 @@ export default function FormEdit() {
     }
 
 
-    };
     useEffect(() => {
         handleUpdate(id)
 
@@ -51,9 +51,12 @@ export default function FormEdit() {
             category: categoria,
             email: email,
             price: precio,
+            urlImg: urlImg,
             id: id
         }
+
         console.log(data);
+
         CallAxios().updateVoice(data)
             .then(response => {
                 console.log(response.data);
@@ -61,9 +64,7 @@ export default function FormEdit() {
             .catch(error => {
                 console.error(error);
             });
-
-    };
-
+    }
     return (
         <div style={{ background: "rgba(219, 171, 236, 1)", padding: "5%", borderRadius: "10px" }} className="container d-flex justify-content-center mt-5">
             <div>
@@ -92,12 +93,12 @@ export default function FormEdit() {
                     </div>
                     <button onClick={handleSubmit} type="button" className="btn btn-dark ms-2">Actualizar</button>
                     <Link to="/cards">
-                    <button type="button" onClick={()=>handleDelete(id)} className="btn btn-dark ms-2">Eliminar</button>
+                        <button type="button" onClick={() => handleDelete(id)} className="btn btn-dark ms-2">Eliminar</button>
                     </Link>
                 </form>
             </div>
         </div>
     )
 }
-    
+
 
