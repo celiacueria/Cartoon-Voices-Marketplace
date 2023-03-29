@@ -1,6 +1,7 @@
 import Seeker from "../Seeker/Seeker";
 import "./Header.css"
 import logo from "../../Assets/img/Img1.png"
+
 function Header() {
   return (
     <div>

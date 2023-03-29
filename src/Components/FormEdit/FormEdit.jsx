@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CallAxios from "../../Services/CallAxios";
 import { Link } from "react-router-dom";
+import InputPhoto from "../../Components/InputPhoto/InputPhoto";
 
 
 export default function FormEdit() {
 
-    const [nombre, setNombre] = useState("");
-    const [categoria, setCategoria] = useState("");
+    const [name, setName] = useState("");
+    const [category, setCategory] = useState("");
     const [email, setEmail] = useState("");
-    const [precio, setPrecio] = useState("");
+    const [price, setPrice] = useState("");
     const [voice, setVoice] = useState("");
     const [urlImg, setUrlImg] = useState("");
     const { id } = useParams();
@@ -18,7 +19,6 @@ export default function FormEdit() {
         CallAxios().getVoicesById(id)
             .then(response => {
                 setVoice(response.data);
-                console.info(response.data)
             })
             .catch(error => {
                 console.error(error);
@@ -32,7 +32,6 @@ export default function FormEdit() {
         CallAxios().deleteVoice(id)
     }
 
-
     useEffect(() => {
         handleUpdate(id)
 
@@ -40,23 +39,16 @@ export default function FormEdit() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = {
-            name: nombre,
-            category: categoria,
+            name: name,
+            category: category,
             email: email,
-            price: precio,
+            price: price,
             urlImg: urlImg,
             id: id
         }
 
-        console.log(data);
-
         CallAxios().updateVoice(data)
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+
     }
     return (
         <div style={{ background: "rgba(219, 171, 236, 1)", padding: "5%", borderRadius: "10px" }} className="container d-flex justify-content-center mt-5">
@@ -65,10 +57,10 @@ export default function FormEdit() {
                     <h1 className="d-flex justify-content-center">Modifica tu anuncio</h1>
                     <div className="mb-3">
                         <input required type="text" className="form-control" id="name"
-                            placeholder="Nombre y Apellidos" onChange={(e) => setNombre(e.target.value)} defaultValue={voice.name}></input>
+                            placeholder="Nombre y Apellidos" onChange={(e) => setName(e.target.value)} defaultValue={voice.name}></input>
                     </div>
                     <div className="mb-3">
-                        <select required className="form-control" id="category" onChange={(e) => setCategoria(e.target.value)} defaultValue={voice.category}>
+                        <select required className="form-control" id="category" onChange={(e) => setCategory(e.target.value)} defaultValue={voice.category}>
                             <option value="" disabled="disabled">Categoría</option>
                             <option value="Animación">Animación</option>
                             <option value="Cine">Cine</option>
@@ -82,11 +74,12 @@ export default function FormEdit() {
                     </div>
                     <div className="mb-3">
                         <input required className="form-control" placeholder="Introduce un importe en euros"
-                            id="price" onChange={(e) => setPrecio(e.target.value)} defaultValue={voice.price}></input>
+                            id="price" onChange={(e) => setPrice(e.target.value)} defaultValue={voice.price}></input>
                     </div>
-                    <button onClick={handleSubmit} type="button" className="btn btn-dark ms-2">Actualizar</button>
+                    <InputPhoto onChange={(e) => setUrlImg(e.target.value)} defaultValue={voice.urlImg} />
+                    <button onClick={handleSubmit} type="button" className="btn btn-dark ms-2 mt-3">Actualizar</button>
                     <Link to="/cards">
-                        <button type="button" onClick={() => handleDelete(id)} className="btn btn-dark ms-2">Eliminar</button>
+                        <button type="button" onClick={() => handleDelete(id)} className="btn btn-dark ms-2 mt-3">Eliminar</button>
                     </Link>
                 </form>
             </div>

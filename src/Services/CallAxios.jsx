@@ -1,8 +1,18 @@
 import axios from 'axios';
 
+export const api = async () => {
+    try {
+        const response = await axios.get("http://localhost:8080/voices");
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
 const CallAxios = () => {
 
-    const url = "http://localhost:8080/voices"    
+    const url = "http://localhost:8080/voices"
 
 
     const getVoices = async (id) => {
