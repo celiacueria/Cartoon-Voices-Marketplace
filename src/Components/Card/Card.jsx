@@ -9,15 +9,15 @@ function Card(props) {
     const editUrl = `/edit/${id}`;
 
     return (
-        <div class="card " style={{ width: "18rem", height: "50vh" }} >
+        <div class="card" style={{ width: "18rem", height: "50vh" }} >
             <div class="card-img ">
                 <img src={props.img} alt={props.name} width="200vh" height="200vh" />
             </div>
             <ul class="card-body-ul">
                 <h5 class="card-title">{props.name}</h5>
-                <li class="list-group-item">{props.category}</li>
-                <li class="list-group-item">{props.price}</li>
-                <li class="list-group-item">{props.email}</li>
+                <li class="list-group-item">Categoria: {props.category}</li>
+                <li class="list-group-item">{props.price}€</li>
+                <li class="list-group-item">email: {props.email}</li>
             </ul>
             <div class="card-body-button">
                 <Link to="/contact">
