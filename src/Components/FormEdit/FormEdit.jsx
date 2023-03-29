@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CallAxios from "../../Services/CallAxios";
-
+import { Link } from "react-router-dom";
 
 
 export default function FormEdit() {
@@ -33,8 +33,9 @@ export default function FormEdit() {
 
     const handleDelete = (id) => {
         CallAxios().deleteVoice(id)
-            .then(response => {
-                console.log("carta eliminada");
+            .then(response => {          
+                alert("Anuncio eliminado");
+                
             })
             .catch(error => {
                 console.error(error);
@@ -52,7 +53,7 @@ export default function FormEdit() {
             id: id
         };
 
-        CallAxios().updateVoice(voice.id, data)
+        CallAxios().updateVoice(id, data)
             .then(response => {
                 console.log(response.data);
             })
@@ -89,7 +90,9 @@ export default function FormEdit() {
                             id="price" onChange={(e) => setPrecio(e.target.value)} value={precio}></input>
                     </div>
                     <button onClick={() => handleUpdate()} type="button" className="btn btn-dark ms-2">Actualizar</button>
-                    <button type="button" onClick={handleDelete} className="btn btn-dark ms-2">Eliminar</button>
+                    <Link to="/cards">
+                    <button type="button" onClick={()=>handleDelete(id)} className="btn btn-dark ms-2">Eliminar</button>
+                    </Link>
                 </form>
             </div>
         </div>
