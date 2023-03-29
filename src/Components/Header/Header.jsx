@@ -1,11 +1,12 @@
 import Seeker from "../Seeker/Seeker";
 import "./Header.css"
-
+import logo from "../../assets/img/Img1.png"
 function Header() {
   return (
     <div>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
+          <img class="navbar-brand" src={logo} style={{width:"20vw", borderRadius:"0"}}/>
           <a class="navbar-brand" href="/">Cartoon Voices</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
