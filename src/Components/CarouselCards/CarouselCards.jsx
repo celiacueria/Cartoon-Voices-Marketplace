@@ -20,16 +20,6 @@ function CarouselCards() {
 
     return (
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            {/* <ol class="carousel-indicators">
-                {cards.map((card, index) => (
-                    <li
-                        key={index}
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to={index}
-                        className={index === 0 ? "active" : ""}
-                    ></li>
-                ))}
-            </ol> */}
             <div class="carousel-inner" >
                 {cards.map((card, index) =>
                     <div 

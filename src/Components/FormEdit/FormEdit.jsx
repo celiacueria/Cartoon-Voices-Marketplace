@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CallAxios from "../../Services/CallAxios";
+import { Link } from "react-router-dom";
 
 
 export default function FormEdit() {
@@ -11,21 +12,35 @@ export default function FormEdit() {
     const [precio, setPrecio] = useState("");
     const { id } = useParams();
 
+
+
     const handleUpdate = () => {
         CallAxios().getVoices(id)
             .then(response => {
-                setNombre(response.data.name);
-                setCategoria(response.data.category);
-                setEmail(response.data.email);
-                setPrecio(response.data.price);
-                
+                setNombre(response.name);
+                setCategoria(response.category);
+                setEmail(response.email);
+                setPrecio(response.price);
+
             })
             .catch(error => {
                 console.error(error);
             });
-        }
-       
-            
+    }
+    useState(() => {
+        handleUpdate();
+    })
+
+    const handleDelete = (id) => {
+        CallAxios().deleteVoice(id)
+            .then(response => {          
+                alert("Anuncio eliminado");
+                
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
 
 
     const handleSubmit = (event) => {
@@ -37,8 +52,6 @@ export default function FormEdit() {
             price: precio,
             id: id
         };
-   
-
 
         CallAxios().updateVoice(id, data)
             .then(response => {
@@ -47,15 +60,14 @@ export default function FormEdit() {
             .catch(error => {
                 console.error(error);
             });
+    }
 
-       }      
-  
 
     return (
         <div style={{ background: "rgba(219, 171, 236, 1)", padding: "5%", borderRadius: "10px" }} className="container d-flex justify-content-center mt-5">
             <div>
                 <form className="form-container">
-                    <h1 className="d-flex justify-content-center">Publica tu anuncio</h1>
+                    <h1 className="d-flex justify-content-center">Modifica tu anuncio</h1>
                     <div className="mb-3">
                         <input required type="text" className="form-control" id="name"
                             placeholder="Nombre y Apellidos" onChange={(e) => setNombre(e.target.value)} value={nombre}></input>
@@ -77,15 +89,16 @@ export default function FormEdit() {
                         <input required className="form-control" placeholder="Introduce un importe en euros"
                             id="price" onChange={(e) => setPrecio(e.target.value)} value={precio}></input>
                     </div>
-                    <button onClick={handleSubmit} type="submit" className="btn btn-dark">Enviar</button>
-                    <button onClick={() => handleUpdate(voice.id)} type="button" className="btn btn-dark ms-2">Actualizar</button>
-                    <button  type="button" className="btn btn-dark ms-2">Eliminar</button>
+                    <button onClick={() => handleUpdate()} type="button" className="btn btn-dark ms-2">Actualizar</button>
+                    <Link to="/cards">
+                    <button type="button" onClick={()=>handleDelete(id)} className="btn btn-dark ms-2">Eliminar</button>
+                    </Link>
                 </form>
             </div>
         </div>
     )
 
-    
+
 }
-    
+
 

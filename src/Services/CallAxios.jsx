@@ -2,7 +2,8 @@ import axios from 'axios';
 
 const CallAxios = () => {
 
-    const url = "http://localhost:8080/voices"
+    const url = "http://localhost:8080/voices"    
+
 
     const getVoices = async (id) => {
         const res = await axios.get(`${url}/${id}`);
