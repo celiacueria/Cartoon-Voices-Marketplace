@@ -13,7 +13,7 @@ function Card(props) {
     return (
         <div class="card " style={{ width: "18rem", height: "50vh" }} >
             <div class="card-img ">
-                <img src={props.img}  alt={props.name} />
+                <img src={props.img}  alt={props.name} style={{width:"20vw", height:"20vw"}} />
                
             </div>
             <div class="card-body">
