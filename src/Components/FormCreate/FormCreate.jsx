@@ -13,7 +13,6 @@ export default function FormCreate() {
 
 
     const handleSubmit = (event) => {
-        event.preventDefault();
         const data = {
             name: name,
             category: category,
@@ -52,8 +51,10 @@ export default function FormCreate() {
                         <input required className="form-control" placeholder="Introduce un importe en euros"
                             id="price" onChange={(e) => setPrice(e.target.value)}></input>
                     </div>
-                    <InputPhoto onChange={(e) => setUrlImg(e.target.value)} />
-                    <button onClick={handleSubmit} type="submit" href="/cards" className="btn btn-dark mt-3">Enviar</button>
+                    <InputPhoto setUrlImg={setUrlImg} />
+                    <Link to="/cards">
+                        <button onClick={() => handleSubmit()} type="submit" className="btn btn-dark mt-3">Enviar</button>
+                    </Link>
                     <button type="button" className="btn btn-dark ms-2 mt-3">Borrar</button>
                 </form>
 

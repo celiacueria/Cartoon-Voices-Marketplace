@@ -30,6 +30,8 @@ export default function FormEdit() {
 
     const handleDelete = (id) => {
         CallAxios().deleteVoice(id)
+        alert("la publicación ha sido eliminada")
+        
     }
 
     useEffect(() => {
@@ -37,13 +39,12 @@ export default function FormEdit() {
 
     });
     const handleSubmit = (event) => {
-        event.preventDefault();
         const data = {
-            name: name,
-            category: category,
-            email: email,
-            price: price,
-            urlImg: urlImg,
+            name: name || voice.name,
+            category: category || voice.category,
+            email: email || voice.email,
+            price: price || voice.price,
+            urlImg: urlImg || voice.urlImg,
             id: id
         }
 
@@ -76,8 +77,10 @@ export default function FormEdit() {
                         <input required className="form-control" placeholder="Introduce un importe en euros"
                             id="price" onChange={(e) => setPrice(e.target.value)} defaultValue={voice.price}></input>
                     </div>
-                    <InputPhoto onChange={(e) => setUrlImg(e.target.value)} defaultValue={voice.urlImg} />
-                    <button onClick={handleSubmit} type="button" className="btn btn-dark ms-2 mt-3">Actualizar</button>
+                    <InputPhoto setUrlImg={setUrlImg} />
+                    <Link to="/cards">
+                        <button onClick={() => handleSubmit()} type="button" className="btn btn-dark ms-2 mt-3">Actualizar</button>
+                    </Link>
                     <Link to="/cards">
                         <button type="button" onClick={() => handleDelete(id)} className="btn btn-dark ms-2 mt-3">Eliminar</button>
                     </Link>

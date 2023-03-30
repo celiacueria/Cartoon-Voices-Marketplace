@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../Card/Card'
-import { api } from "../../Services/CallAxios";
+import CallAxios from "../../Services/CallAxios";
 import "./CardsGroup.css"
 
 function CardsGroup() {
@@ -8,10 +8,10 @@ function CardsGroup() {
     let [cards, setCards] = useState([])
 
     useEffect(() => {
-        api().then((data) => {
-          setCards(data);
+        CallAxios().getVoices().then((data) => {
+            setCards(data);
         });
-      }, []);
+    }, []);
 
     function chunk(array, size) {
         const result = [];

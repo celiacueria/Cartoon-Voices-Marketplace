@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import { api } from "../../Services/CallAxios";
+import CallAxios from "../../Services/CallAxios";
 import "./CarouselCards.css"
 
 function CarouselCards() {
     let [cards, setCards] = useState([])
 
     useEffect(() => {
-        api().then((data) => {
-          setCards(data);
+        CallAxios().getVoices().then((data) => {
+            setCards(data);
         });
-      }, []);
+    }, []);
 
     return (
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" >
                 {cards.map((card, index) =>
-                    <div 
-                    className={index === 0 ? "carousel-item active" : "carousel-item"} 
-                    key={card.id} 
+                    <div
+                        className={index === 0 ? "carousel-item active" : "carousel-item"}
+                        key={card.id}
                     >
-                        <img class="d-block" src={card.urlImg} alt={card.name} style={{width:"60vh", height: "40vh", margin:"auto"}} />
-                        <div style={{background: "white", opacity: 0.5 }}class="carousel-caption d-none d-md-block">
-                            <h2 style={{color:"black", fontWeight:"700" }}>{card.name}</h2>
-                            <h4 style={{color:"black"}}>{card.email}</h4>
+                        <img class="d-block" src={card.urlImg} alt={card.name} style={{ width: "60vh", height: "40vh", margin: "auto" }} />
+                        <div style={{ background: "white", opacity: 0.5 }} class="carousel-caption d-none d-md-block">
+                            <h2 style={{ color: "black", fontWeight: "700" }}>{card.name}</h2>
+                            <h4 style={{ color: "black" }}>{card.email}</h4>
                         </div>
                     </div>
                 )}

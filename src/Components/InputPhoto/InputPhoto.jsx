@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 
-function InputPhoto() {
+function InputPhoto({setUrlImg}) {
     const [file, setFile] = useState(null);
     const [imagePreview, setImagePreview] = useState(null);
     const [base64, setBase64] = useState(null);
@@ -28,17 +28,16 @@ function InputPhoto() {
                 context.drawImage(image, 0, 0);
                 const base64 = canvas.toDataURL();
                 setBase64(base64);
+                setUrlImg(base64)
             };
         }
     }, [imagePreview]);
 
     return (
         <div>
-            <textarea value={base64} required class="form-control" placeholder="Añade una foto"
+            <textarea onChange={(e)=> setUrlImg(e.target.value)} value={base64} required class="form-control" placeholder="Añade una foto"
                                 id="photo"/>
         <input type="file" onChange={handleFileChange} />
-            {imagePreview && <img src={imagePreview} style={{ width: "40px" }} />}
-            {base64 && <textarea value={base64} />}
         </div>
     );
 }
